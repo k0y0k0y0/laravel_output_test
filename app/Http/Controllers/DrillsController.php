@@ -7,6 +7,11 @@ use App\Models\Drill;
 
 class DrillsController extends Controller
 {
+    public function index(){
+        $drills = Drill::all();
+        return view('drills.index', compact('drills'));
+    }
+
     public function new(){
         return view('drills.new');
     }
@@ -32,5 +37,24 @@ class DrillsController extends Controller
         $drill->fill($request->all())->save();
 
         return redirect('/drills/new')->with('flash_message', __('Registered.'));
+    }
+
+    public function edit($id){
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('invalid operation was performed.'));
+        }
+        $drill = Drill::find($id);
+        return view('drills.edit', compact('drill'));
+    }
+
+    public function update(Request $request, $id){
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('invalid operation was performed.'));
+        }
+
+        $drill = Drill::find($id);
+        $drill->fill($request->all())->save();
+
+        return redirect('/drills')->with('flash_message', __('Registered.'));
     }
 }

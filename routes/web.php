@@ -1,7 +1,7 @@
 <?php
 
-use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Route::get('/drills/new', [App\Http\Controllers\DrillsController::class, 'new'])->name('drills.new');
 Route::post('/drills', [App\Http\Controllers\DrillsController::class, 'create'])->name('drills.create');
+Route::get('/drills', [App\Http\Controllers\DrillsController::class, 'index'])->name('drills');
+Route::get('/drills/{id}/edit', [App\Http\Controllers\DrillsController::class, 'edit'])->name('drills.edit');
+Route::post('/drills/{id}', [App\Http\Controllers\DrillsController::class, 'update'])->name('drills.update');
 
 Auth::routes();
 
