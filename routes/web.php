@@ -1,5 +1,6 @@
 <?php
 
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/drills/new', [App\Http\Controllers\DrillsController::class, 'new'])->name('drills.new');
+Route::post('/drills', [App\Http\Controllers\DrillsController::class, 'create'])->name('drills.create');
 
 Auth::routes();
 
