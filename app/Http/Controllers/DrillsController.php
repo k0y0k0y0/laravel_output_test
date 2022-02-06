@@ -39,6 +39,15 @@ class DrillsController extends Controller
         return redirect('/drills/new')->with('flash_message', __('Registered.'));
     }
 
+    public function show($id){
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('invalid operation was performed.'));
+        }
+
+        $drill = Drill::find($id);
+        return view('drills.show', compact('drill'));
+    }
+
     public function edit($id){
         if(!ctype_digit($id)){
             return redirect('/drills/new')->with('flash_message', __('invalid operation was performed.'));
@@ -56,5 +65,14 @@ class DrillsController extends Controller
         $drill->fill($request->all())->save();
 
         return redirect('/drills')->with('flash_message', __('Registered.'));
+    }
+
+    public function destroy($id){
+        if(!ctype_digit($id)){
+            return redirect('/drills/new')->with('flash_message', __('invalid operation was performed.'));
+        }
+        Drill::find($id)->delete();
+
+        return redirect('/drills')->with('flash_message', __('Deleted.'));
     }
 }

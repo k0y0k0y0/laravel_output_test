@@ -23,6 +23,8 @@ Route::post('/drills', [App\Http\Controllers\DrillsController::class, 'create'])
 Route::get('/drills', [App\Http\Controllers\DrillsController::class, 'index'])->name('drills');
 Route::get('/drills/{id}/edit', [App\Http\Controllers\DrillsController::class, 'edit'])->name('drills.edit');
 Route::post('/drills/{id}', [App\Http\Controllers\DrillsController::class, 'update'])->name('drills.update');
+Route::post('/drills/{id}/delete', [App\Http\Controllers\DrillsController::class, 'destroy'])->name('drills.delete');
+Route::get('/drills/{id}', [App\Http\Controllers\DrillsController::class, 'show'])->name('drills.show');
 
 Auth::routes();
 

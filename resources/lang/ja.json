@@ -1,11 +1,14 @@
 {
-  "Drill Register": "練習登録",
+  "Drill Register": "登録画面",
   "Title": "タイトル",
   "Category": "カテゴリー",
   "Problem": "問題",
-  "Register": "登録する",
-  "Registered": "登録完了",
-  "Drill List": "タイピング練習一覧",
-  "Go Practice": "挑戦する",
-  "Login": "ログイン"
+  "Register": "登録",
+  "Registered.": "登録完了",
+  "Drill List": "一覧",
+  "Go Practice": "実施",
+  "Login": "ログイン",
+  "Go Edit": "編集",
+  "Go Delete": "削除",
+  "Drill Updater": "編集画面"
 }
